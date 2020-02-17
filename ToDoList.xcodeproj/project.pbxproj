@@ -15,6 +15,7 @@
 		FDE1890A23FA628C0039176E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE1890823FA628C0039176E /* LaunchScreen.storyboard */; };
 		FDE1891523FA628C0039176E /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1891423FA628C0039176E /* ToDoListTests.swift */; };
 		FDE1892023FA628C0039176E /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1891F23FA628C0039176E /* ToDoListUITests.swift */; };
+		FDE1892E23FA630C0039176E /* ToDoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1892D23FA630C0039176E /* ToDoAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FDE1891B23FA628C0039176E /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE1891F23FA628C0039176E /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		FDE1892123FA628C0039176E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDE1892D23FA630C0039176E /* ToDoAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				FDE1890623FA628C0039176E /* Assets.xcassets */,
 				FDE1890823FA628C0039176E /* LaunchScreen.storyboard */,
 				FDE1890B23FA628C0039176E /* Info.plist */,
+				FDE1892D23FA630C0039176E /* ToDoAddViewController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE1892E23FA630C0039176E /* ToDoAddViewController.swift in Sources */,
 				FDE1890223FA628B0039176E /* ViewController.swift in Sources */,
 				FDE188FE23FA628B0039176E /* AppDelegate.swift in Sources */,
 				FDE1890023FA628B0039176E /* SceneDelegate.swift in Sources */,
