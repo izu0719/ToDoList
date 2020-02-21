@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var todoArray = [String]()
     
-
+    
     
     
     override func viewDidLoad() {
@@ -31,17 +31,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      
+        
         
         if saveData.object(forKey: "todo") != nil{
-           
+            
             todoArray = saveData.object(forKey: "todo") as! [String]
             
         } else if saveData.object(forKey: "todo") == nil{
             
         }
         table.reloadData()
-      
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,20 +57,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //セルの編集許可
-     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-     {
-         return true
-     }
-
-     //スワイプしたセルを削除　※arrayNameは変数名に変更してください
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == UITableViewCell.EditingStyle.delete {
-             todoArray.remove(at: indexPath.row)
-             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-            saveData.set(todoArray, forKey: "todo")
-            
-         }
-     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+    
+    //スワイプしたセルを削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let alert: UIAlertController = UIAlertController(title: "削除", message: "削除しますか？", preferredStyle: .alert)
+        
+        let deleteAlert: UIAlertAction = UIAlertAction(title: "削除", style: .default){(UIAlertAction) in
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                self.todoArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                self.saveData.set(self.todoArray, forKey: "todo")
+            }
+        }
+        
+        alert.addAction(deleteAlert)
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: .cancel,
+                handler: { action in print("キャンセル")}
+            )
+        )
+     
+        present(alert, animated: true, completion: nil)
+       
+    }
     
 }
 
