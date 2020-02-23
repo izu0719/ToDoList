@@ -1,40 +1,45 @@
 //
-//  ToDoAddViewController.swift
+//  EditViewController.swift
 //  ToDoList
 //
-//  Created by 坂本 泉 on 2020/02/17.
+//  Created by 坂本 泉 on 2020/02/21.
 //  Copyright © 2020 mycompany. All rights reserved.
 //
 
 import UIKit
 
-class ToDoAddViewController: UIViewController {
+class EditViewController: UIViewController {
     
-    @IBOutlet var toDoTextField: UITextField!
+    @IBOutlet var editTextField: UITextField!
+    
+    var todoArray = [String]()
     
     var saveData: UserDefaults = UserDefaults.standard
     
-    var todoArray = [String]()
+    var selectedCell: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if saveData.object(forKey: "todo") != nil{
+            
+            todoArray = saveData.object(forKey: "todo") as! [String]
+            
+        }
+        
+        selectedCell = saveData.object(forKey: "number") as? Int
+        editTextField?.text = todoArray[selectedCell]
+        
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if saveData.object(forKey: "todo") != nil{
-            todoArray = saveData.object(forKey: "todo") as! [String]
-        }
-    }
-    
-    @IBAction func save(){
-        todoArray.append(toDoTextField.text!)
+    @IBAction func editSave(){
+        
+        todoArray[selectedCell] = editTextField!.text!
         saveData.set(todoArray, forKey: "todo")
         
         self.navigationController?.popViewController(animated: true)
     }
-    
     /*
      // MARK: - Navigation
      

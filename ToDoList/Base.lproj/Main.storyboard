@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="save" destination="wD7-8T-Ufd" eventType="touchUpInside" id="5Cz-6A-Vke"/>
+                                    <action selector="editSave" destination="VMQ-gf-g4L" eventType="touchUpInside" id="P8N-83-mhf"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Uw-v0-twi">
@@ -135,7 +135,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="q6M-AK-mS8"/>
                     <connections>
-                        <outlet property="editSave" destination="FaL-ov-RpP" id="C3i-1N-FCD"/>
                         <outlet property="editTextField" destination="2Uw-v0-twi" id="yam-E9-qRz"/>
                     </connections>
                 </viewController>

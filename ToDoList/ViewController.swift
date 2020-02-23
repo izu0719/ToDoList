@@ -15,7 +15,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var todoArray = [String]()
     
+//    var selectedText: String!
     
+    var selectedCell: Int!
     
     
     override func viewDidLoad() {
@@ -24,6 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view.
         
         table.dataSource = self
+        table.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,17 +47,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    //セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoArray.count
     }
     
+    //ToDo表示
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         
         cell?.textLabel?.text = todoArray[indexPath.row]
-        
         return cell!
     }
+    
+  
+    //編集
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+        selectedCell = indexPath.row
+        saveData.set(selectedCell, forKey: "number")
+        
+    }
+    
     
     //セルの編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
@@ -83,10 +97,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 handler: { action in print("キャンセル")}
             )
         )
-     
+        
         present(alert, animated: true, completion: nil)
-       
+        
     }
+    
+    
+    
     
 }
 
